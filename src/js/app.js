@@ -19,3 +19,8 @@ minifyApp.config(function($stateProvider, $urlRouterProvider) {
         controller: "DashboardController as dashboardController"
     });
 });
+
+
+particlesJS.load('particles', 'particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});

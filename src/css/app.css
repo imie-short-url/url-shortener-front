@@ -1,0 +1,43 @@
+#particles {
+    height: 280px;
+    background-color: rgb(63,81,181);
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#particles .container {
+    height: 280px;
+    position: relative;
+}
+
+#particles md-content {
+    color: #fff;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#particles canvas {
+    position: absolute;
+    top: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.valign-wrapper {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
