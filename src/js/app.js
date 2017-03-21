@@ -7,8 +7,8 @@ minifyApp.config(function($stateProvider, $urlRouterProvider) {
         url: '/signup',
         templateUrl: 'views/signup.html',
         controller: "SignupController as signupController"
-    });
-    .state('signin', {
+    })
+    .state('signin', {  
         url: '/signin',
         templateUrl: 'views/signin.html',
         controller: "SigninController as signinController"
