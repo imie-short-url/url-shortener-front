@@ -6,5 +6,10 @@ minifyApp.config(function($stateProvider, $urlRouterProvider) {
     .state('home', {
         url: '/home',
         templateUrl: 'views/home.html'
+    })
+    .state('signup', {
+        url: '/signup',
+        templateUrl: 'views/signup.html',
+        controller: "SignupController as signupController"
     });
 });
