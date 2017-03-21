@@ -6,7 +6,10 @@ minifyApp.config(function($stateProvider, $urlRouterProvider) {
     .state('signup', {
         url: '/signup',
         templateUrl: 'views/signup.html',
-        controller: "SignupController as signupController"
+        controller: "SignupController as signupController",
+        data: {
+            pageTitle: 'Créer un compte'
+        }
     })
     .state('signin', {  
         url: '/signin',
@@ -45,3 +48,23 @@ minifyApp.directive('confirmPwd', function($interpolate, $parse) {
     }
   }
 });
+
+minifyApp.directive('title', ['$rootScope', '$timeout',
+  function($rootScope, $timeout) {
+    return {
+      link: function() {
+
+        var listener = function(event, toState) {
+
+          $timeout(function() {
+            $rootScope.title = (toState.data && toState.data.pageTitle) 
+            ? toState.data.pageTitle 
+            : 'Racourcisseur de liens';
+          });
+        };
+
+        $rootScope.$on('$stateChangeSuccess', listener);
+      }
+    };
+  }
+]);
