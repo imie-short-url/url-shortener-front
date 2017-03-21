@@ -1,4 +1,4 @@
-const minifyApp = angular.module('MinifyApp', ['ngMaterial', 'ui.router']);
+const minifyApp = angular.module('MinifyApp', ['ngMaterial', 'ui.router', 'ngMessages']).constant('API', "localhost:9000");
 
 minifyApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/signin');
