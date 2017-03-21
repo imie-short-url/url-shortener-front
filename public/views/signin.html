@@ -1,0 +1,25 @@
+<form ng-submit="sendForm()" name="form">
+    <md-content layout-padding>
+        <div>
+            <md-input-container class='md-block'>
+                <label>Adresse email</label>
+                <input ng-model="user.email" type="email" name="email" ng-pattern="/^.+@.+\..+$/" required>
+                <div ng-messages="form.email.$error">
+                    <div ng-message="required">L'email est obligatoire</div>
+                    <div ng-message="pattern">L'adresse email est invalide</div>
+                </div>
+            </md-input-container>
+            <md-input-container  class='md-block'> 
+                <label>Mot de passe</label>
+                <input ng-model="user.password" type="password" name="password" required>
+                <div ng-messages="form.password.$error">
+                    <div ng-message="required">Le mot de passe est obligatoire</div>
+                </div>
+            </md-input-container>
+            <md-input-container  class='md-block'> 
+                <span>Vous n'avez pas de compte ? <a ui-sref="signup">Créez un compte</a></span>
+            </md-input-container>
+            <md-button type="submit" class="md-raised md-primary">Connexion</md-button>
+        </div>
+    </md-content>
+</form>

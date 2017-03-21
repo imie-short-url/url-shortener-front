@@ -1,4 +1,4 @@
-const minifyApp = angular.module('MinifyApp', ['ngMaterial', 'ui.router', 'ngMessages']);
+const minifyApp = angular.module('MinifyApp', ['ngMaterial', 'ui.router', 'ngMessages']).constant('API', "localhost:9000");
 
 minifyApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/signin');
@@ -38,7 +38,7 @@ minifyApp.directive('confirmPwd', function($interpolate, $parse) {
 
       scope.$watch(pwdFn, function(newVal) {
           ngModelCtrl.$setValidity('password', ngModelCtrl.$viewValue == newVal);
-      })
+      });
 
       ngModelCtrl.$validators.password = function(modelValue, viewValue) {
         var value = modelValue || viewValue;
@@ -46,7 +46,7 @@ minifyApp.directive('confirmPwd', function($interpolate, $parse) {
       };
 
     }
-  }
+  };
 });
 
 minifyApp.directive('title', ['$rootScope', '$timeout',
