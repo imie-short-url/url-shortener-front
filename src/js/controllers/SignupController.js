@@ -6,10 +6,10 @@ minifyApp.controller('SignupController', function($scope, $http) {
     }
 
     $scope.sendForm = function() {
-    	if($scope.signupForm.$valid) {
-    		console.log('sent');
-    	} else {
-    		console.log('nope');
-    	}
+        if($scope.signupForm.$valid) {
+            console.log('sent');
+        } else {
+            console.log('nope');
+        }
     };
 });
