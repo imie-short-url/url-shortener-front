@@ -8,6 +8,7 @@ const gulp = require('gulp'),
 gulp.task('build-css', () => {
   return gulp.src('src/**/*.css')
     .pipe(order([
+      "vendor/reset.css",
       "vendor/angular-maerial.css",
       "*.css"
     ]))
