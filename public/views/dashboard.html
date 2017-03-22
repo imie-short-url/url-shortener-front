@@ -25,7 +25,7 @@
 	<md-list-item ng-repeat="shortUrl in shortUrls" ng-click="copy(shortUrl.shortcode)">
 		<p> {{ shortUrl.url }} <small>{{ shortUrl.shortcode }}</small></p>
 		<md-icon ng-click="copy(shortUrl.shortcode)" class="md-secondary">content_copy</md-icon>
-		<md-icon ng-click="delete(shortUrl.shortcode)" class="md-secondary">delete_forever</md-icon>
+		<md-icon ng-click="delete(shortUrl.shortcode)" class="md-secondary">delete</md-icon>
 		<md-divider></md-divider>
 	</md-list-item>
 </md-list>
