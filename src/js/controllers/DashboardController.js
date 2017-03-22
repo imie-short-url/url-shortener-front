@@ -92,6 +92,11 @@ minifyApp.controller('DashboardController', function($scope, $state, $mdToast, $
 		});
 	};
 
+	$scope.logout = function(){
+		window.sessionStorage.clear();
+		$state.go('signin');
+	}
+
 	//$scope.load();
 	$scope.shortUrls = [
 		{
