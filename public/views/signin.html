@@ -1,6 +1,12 @@
 <form ng-submit="sendForm()" name="form">
     <md-content layout-padding>
         <div>
+            <div class="alert md-whiteframe-1dp" ng-show="error">
+                {{error}}
+                <span class="close">
+                    <a href="javascript:void(0);" ng-click="error=''">x</a>
+                </span>
+            </div>
             <md-input-container class='md-block'>
                 <label>Adresse email</label>
                 <input ng-model="user.email" type="email" name="email" ng-pattern="/^.+@.+\..+$/" required>

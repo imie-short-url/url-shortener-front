@@ -1,4 +1,7 @@
-minifyApp.controller('SignupController', function($scope, $http) {
+minifyApp.controller('SignupController', function($scope, $http, API) {
+    if(window.sessionStorage.getItem('token') !== '' && window.sessionStorage.getItem('token') !== null)
+        $state.go('dashboard');
+
     $scope.user = {
         email: '',
         password: '',
@@ -11,12 +14,30 @@ minifyApp.controller('SignupController', function($scope, $http) {
         ERR_EMAIL_EMPTY: "L'email est vide.",
         ERR_PASSWORD_EMPTY: "Le mot de passe est vide.",
         ERR_EMAIL_PASSWORD_EMPTY: "Email et mot de passe vides.",
-        ERR_EMAIL_TAKEN: "L'email est déjà prise."
+        ERR_EMAIL_TAKEN: "L'email est déjà prise.",
+        ERR_UNKNOWN: "Une erreur s'est produite."
     };
 
     $scope.error = "";
 
     $scope.sendForm = function() {
-        $scope.error = $scope.errors.ERR_EMAIL_TAKEN;
+        $http({
+            url: API.url+'/user/register',
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            data: {
+                login: $scope.user,
+                password: $scope.password
+            }
+        }).then(function successCallback(response){
+            window.sessionStorage
+                .setItem('email', $scope.user.email)
+                .setItem('token', $response.token);
+            $state.go('signin');
+        }, function errorCallback(response){
+            $scope.error = $scope.errors[response.error] === undefined ? $scope.errors['ERR_UNKNOWN'] : $scope.errors[response.error];
+        });
     };
 });
